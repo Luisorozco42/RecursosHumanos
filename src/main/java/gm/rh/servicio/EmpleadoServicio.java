@@ -1,0 +1,36 @@
+package gm.rh.servicio;
+
+import gm.rh.modelo.Empleado;
+import gm.rh.repositorio.EmpleadoRepositorio;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class EmpleadoServicio implements IEmpleadoServicio {
+
+    @Autowired
+    private EmpleadoRepositorio empleadoRepositorio;
+
+    @Override
+    public List<Empleado> listarEmpleados() {
+        return this.empleadoRepositorio.findAll();
+    }
+
+    @Override
+    public Empleado buscarEmpleadoPorId(Integer idEmpleado) {
+        return this.empleadoRepositorio.findById(idEmpleado).orElse(null);
+    }
+
+    @Override
+    public void guardarEmpleado(Empleado empleado) {
+        this.empleadoRepositorio.save(empleado);
+    }
+
+    @Override
+    public void eliminarEmpleado(Empleado empleado) {
+        this.empleadoRepositorio.delete(empleado);
+    }
+}
