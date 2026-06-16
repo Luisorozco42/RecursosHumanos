@@ -2,7 +2,6 @@ package gm.rh.servicio;
 
 import gm.rh.modelo.Empleado;
 import gm.rh.repositorio.EmpleadoRepositorio;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
