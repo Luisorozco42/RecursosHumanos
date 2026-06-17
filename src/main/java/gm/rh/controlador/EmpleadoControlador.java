@@ -66,6 +66,7 @@ public class EmpleadoControlador {
             throw new RecursoNoEncontradoExcepcion("El id no existe " + id);
         }
 
+        empleadoServicio.eliminarEmpleado(empleado);
         Map<String, Boolean> respuesta = new HashMap<>();
         respuesta.put("eliminado", Boolean.TRUE);
         return ResponseEntity.ok(respuesta);
